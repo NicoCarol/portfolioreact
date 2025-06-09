@@ -1,8 +1,11 @@
 import React from 'react'
+import "../css/mainhome.css"
 
 const MainHome = () => {
   return (
-    <div>MainHome</div>
+    <div className='mainhome'>
+      <h1>Nicolás Carol | Desarrollador Web </h1>
+    </div>
   )
 }
 
