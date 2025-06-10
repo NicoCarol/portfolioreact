@@ -6,9 +6,9 @@ import Footer from '../components/Footer';
 const Projects = () => {
   return (
     <div>
-      <Header/>
+      
       <MainProjects/>
-      <Footer/>
+     
     </div>
   )
 }

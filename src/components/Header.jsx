@@ -1,24 +1,31 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../css/header.css"
+import useThemeStore from "../store/themestore";
+
 const Header = () => {
+  const { darkMode, toggleTheme } = useThemeStore();
+
   return (
-    <div>
-      <Navbar expand="lg" className="custom-navbar" sticky="top">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white"/>
-          <Navbar.Collapse id="basic-navbar-nav">
-             <Nav className="ms-auto">
-            <Link className="nav-link-custom" to="/">Home</Link>
-            <Link className="nav-link-custom" to="/about">About Me</Link>
-            <Link className="nav-link-custom" to="/projects">Projects</Link>
-            <Link className="nav-link-custom" to="/contact">Contact</Link>
+    <Navbar expand="lg" className="px-3" bg={darkMode ? "dark" : "light"} variant={darkMode ? "dark" : "light"}>
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Link className="mx-3 nav-link" to="/">Home</Link>
+            <Link className="mx-3 nav-link" to="/about">About Me</Link>
+            <Link className="mx-3 nav-link" to="/projects">Projects</Link>
+            <Link className="mx-3 nav-link" to="/contact">Contact</Link>
           </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+          <button
+            className="btn btn-outline-secondary btn-sm"
+            onClick={toggleTheme}
+          >
+            {darkMode ? "Modo Claro ☀️" : "Modo Oscuro 🌙"}
+          </button>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
